@@ -1,4 +1,4 @@
-package com.example.dogstagram.fragments;
+package com.example.dogstagram.DOG_Fragments;
 
 import android.Manifest;
 import android.content.Intent;
@@ -24,7 +24,7 @@ import androidx.fragment.app.Fragment;
 import com.example.dogstagram.ImageAnalysisActivity;
 import com.example.dogstagram.JsonPlaceFolderAPI;
 import com.example.dogstagram.R;
-import com.example.dogstagram.models.UploadImg;
+import com.example.dogstagram.DOG_Model_Lists.UploadImg;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;

@@ -1,7 +1,7 @@
 package com.example.dogstagram;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import org.jetbrains.annotations.NotNull;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,11 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import androidx.appcompat.widget.Toolbar;
 
-import com.example.dogstagram.fragments.BreedFragment;
-import com.example.dogstagram.fragments.FavouritesFragment;
-import com.example.dogstagram.fragments.ImageSearchFragment;
+import com.example.dogstagram.DOG_Fragments.BreedFragment;
+import com.example.dogstagram.DOG_Fragments.FavouritesFragment;
+import com.example.dogstagram.DOG_Fragments.ImageSearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 ;
 

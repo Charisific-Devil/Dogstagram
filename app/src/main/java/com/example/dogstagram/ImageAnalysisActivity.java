@@ -3,23 +3,15 @@ package com.example.dogstagram;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.dogstagram.JsonPlaceFolderAPI;
-import com.example.dogstagram.R;
-import com.example.dogstagram.adapters.AnalysisAdapter;
-import com.example.dogstagram.models.ImageAnalysis;
-import com.example.dogstagram.models.Labels;
+import com.example.dogstagram.Dog_Adapters.AnalysisAdapter;
+import com.example.dogstagram.DOG_Model_Lists.ImageAnalysis;
+import com.example.dogstagram.DOG_Model_Lists.Labels;
 
 import java.util.ArrayList;
 import java.util.List;

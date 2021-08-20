@@ -1,8 +1,8 @@
-package com.example.dogstagram.models;
+package com.example.dogstagram.DOG_Model_Lists;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Breed{
+public class BreedName {
 
     @SerializedName("name")
     private String breed;
@@ -25,13 +25,19 @@ public class Breed{
     @SerializedName("weight")
     private Weight weight;
 
+    @SerializedName("image")
+    private ImageURL image;
 
-    public Breed(Height height, Weight weight) {
+    public BreedName(ImageURL image) {
+        this.image = image;
+    }
+
+    public BreedName(Height height, Weight weight) {
         this.height = height;
         this.weight = weight;
     }
 
-    public Breed(String mBreed, String mid, String mlifeSpan, String morigin, String mtemperament) {
+    public BreedName(String mBreed, String mid, String mlifeSpan, String morigin, String mtemperament) {
         breed = mBreed;
         id = mid;
         lifeSpan = mlifeSpan;
@@ -67,4 +73,7 @@ public class Breed{
         return weight;
     }
 
+    public ImageURL getImage() {
+        return image;
+    }
 }

@@ -1,13 +1,10 @@
-package com.example.dogstagram.adapters;
+package com.example.dogstagram.Dog_Adapters;
 
 import android.app.Dialog;
-import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.support.v4.os.IResultReceiver;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dogstagram.R;
-import com.example.dogstagram.database.AppDatabase;
-import com.example.dogstagram.database.Data;
-import com.example.dogstagram.models.BreedName;
-import com.example.dogstagram.models.ImageURL;
+import com.example.dogstagram.Dog_DB.Data;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;

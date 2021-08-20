@@ -1,4 +1,4 @@
-package com.example.dogstagram.database;
+package com.example.dogstagram.Dog_DB;
 
 
 import android.content.Context;

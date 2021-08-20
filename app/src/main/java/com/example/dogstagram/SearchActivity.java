@@ -8,11 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.dogstagram.adapters.BreedNamesAdapter;
-import com.example.dogstagram.adapters.SearchAdapter;
-import com.example.dogstagram.models.BreedName;
-import com.example.dogstagram.models.ImageURL;
-import com.example.dogstagram.models.SearchBreed;
+import com.example.dogstagram.Dog_Adapters.SearchAdapter;
+import com.example.dogstagram.DOG_Model_Lists.SearchBreed;
 
 import java.util.ArrayList;
 import java.util.List;

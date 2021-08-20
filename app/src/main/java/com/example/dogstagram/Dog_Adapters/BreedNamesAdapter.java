@@ -1,4 +1,4 @@
-package com.example.dogstagram.adapters;
+package com.example.dogstagram.Dog_Adapters;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -21,13 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dogstagram.JsonPlaceFolderAPI;
 import com.example.dogstagram.R;
-import com.example.dogstagram.database.AppDatabase;
-import com.example.dogstagram.database.Data;
-import com.example.dogstagram.models.BreedName;
-import com.example.dogstagram.models.ImageURL;
-import com.example.dogstagram.models.SearchBreed;
-import com.example.dogstagram.models.Vote;
-import com.example.dogstagram.models.VoteData;
+import com.example.dogstagram.Dog_DB.AppDatabase;
+import com.example.dogstagram.Dog_DB.Data;
+import com.example.dogstagram.DOG_Model_Lists.BreedName;
+import com.example.dogstagram.DOG_Model_Lists.ImageURL;
+import com.example.dogstagram.DOG_Model_Lists.Vote;
+import com.example.dogstagram.DOG_Model_Lists.VoteData;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -41,37 +40,37 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static java.lang.String.format;
 import static java.lang.String.valueOf;
 
-public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder>
-{
+public class BreedNamesAdapter extends RecyclerView.Adapter<BreedNamesAdapter.ViewHolder> {
 
-    private static final String TAG = "RecylerViewAdapter";
+    private static final String TAG = "BreedNamesAdapter";
 
     private Context context;
-    private ArrayList<SearchBreed> images = new ArrayList<>();
-    private ArrayList<SearchBreed> breedData = new ArrayList<>();
-    private ArrayList<SearchBreed> units = new ArrayList<>();
+    private ArrayList<BreedName> breedNames = new ArrayList<>();
+    private ArrayList<BreedName> units = new ArrayList<>();
+    private ArrayList<ImageURL> imgUrls = new ArrayList<>();
 
     Dialog dispItem;
 
     JsonPlaceFolderAPI jsonPlaceFolderAPI;
 
-    public SearchAdapter(Context context, ArrayList<SearchBreed> breedData,
-                         ArrayList<SearchBreed> images, ArrayList<SearchBreed> units) {
-        this.breedData = breedData;
-        this.units = units;
-        this.images = images;
+    public BreedNamesAdapter(Context context, ArrayList<BreedName> breedNames,
+                             ArrayList<ImageURL> imgUrls, ArrayList<BreedName> units) {
+        this.breedNames = breedNames;
+        this.imgUrls = imgUrls;
         this.context = context;
+        this.units = units;
     }
 
     @Override
-    public SearchAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.layout_list, parent, false);
 
-        SearchAdapter.ViewHolder viewHolder = new SearchAdapter.ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.thedogapi.com/v1/")
@@ -99,18 +98,18 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(SearchAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(BreedNamesAdapter.ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        SearchBreed breedName = breedData.get(position);
+        BreedName breedName = breedNames.get(position);
         holder.breed.setText(breedName.getBreed());
         holder.id.setText(valueOf(position + 1));
 
 
-        if (images.size() > 0) {
-            SearchBreed imgUrl = images.get(position);
+        if (imgUrls.size() > 0) {
+            ImageURL imgUrl = imgUrls.get(position);
             Picasso.with(holder.image.getContext())
-                    .load(Uri.parse(imgUrl.getImageid()))
+                    .load(Uri.parse(imgUrl.getImgUrl()))
                     .into(holder.image);
         }
 
@@ -119,10 +118,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     @Override
     public int getItemCount() {
 
-       // if(images.size()<breedData.size())
-         //   return images.size();
+        if (breedNames.size() > imgUrls.size())
+            return imgUrls.size();
 
-        return breedData.size();
+        return breedNames.size();
     }
 
     private void setDialog(int pos)
@@ -131,7 +130,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         ImageView image = dispItem.findViewById(R.id.image);
 
         Picasso.with(image.getContext())
-                .load(Uri.parse(images.get(pos).getImageid()))
+                .load(Uri.parse(imgUrls.get(pos).getImgUrl()))
                 .into(image);
 
         TextView dialogName = dispItem.findViewById(R.id.name);
@@ -154,7 +153,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         share.setVisibility(View.INVISIBLE);
 
-        SearchBreed item = breedData.get(pos);
+        BreedName item = breedNames.get(pos);
 
         dialogName.setText(item.getBreed());
 
@@ -200,14 +199,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     private void vote(int i, int pos)
     {
-        RequestBody image_idPart = RequestBody.create(MultipartBody.FORM, images.get(pos).getImageid());
+        RequestBody image_idPart = RequestBody.create(MultipartBody.FORM, imgUrls.get(pos).getImgUrl());
         RequestBody valuePart = RequestBody.create(MultipartBody.FORM, valueOf(i));
 
         //Call<Vote> call = jsonPlaceFolderAPI.addVote(image_idPart, valuePart);
-        int start = images.get(pos).getImageid().lastIndexOf('/')+1;
-        int end = images.get(pos).getImageid().lastIndexOf('.');
+        int start = imgUrls.get(pos).getImgUrl().lastIndexOf('/')+1;
+        int end = imgUrls.get(pos).getImgUrl().lastIndexOf('.');
 
-        String imgID = images.get(pos).getImageid().substring(start, end);
+        String imgID = imgUrls.get(pos).getImgUrl().substring(start, end);
 
         VoteData voteData = new VoteData(imgID, valueOf(i));
 
@@ -242,12 +241,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         boolean doesExist=false;
 
         for(String url : imageURLS) {
-            if (url.equals(images.get(pos).getImageid()))
+            if (url.equals(imgUrls.get(pos).getImgUrl()))
                 doesExist = true;
         }
 
         if(!doesExist) {
-            SearchBreed item = breedData.get(pos);
+            BreedName item = breedNames.get(pos);
 
             Data data = new Data();
 
@@ -259,7 +258,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
             data.temperament = item.getTemperament();
 
-            data.imageURL = images.get(pos).getImageid();
+            data.imageURL = imgUrls.get(pos).getImgUrl();
 
             data.height = units.get(pos).getHeight().get_Height();
 
@@ -276,7 +275,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private static final String TAG = "ViewHolder";
-
         RelativeLayout layout;
         TextView breed;
         TextView id;

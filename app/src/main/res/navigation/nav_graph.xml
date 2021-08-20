@@ -6,12 +6,12 @@
 
     <fragment
         android:id="@+id/breedFragment"
-        android:name="com.example.dogstagram.fragments.BreedFragment"
+        android:name="com.example.dogstagram.DOG_Fragments.BreedFragment"
         android:label="fragment_breed"
         tools:layout="@layout/fragment_breed" />
     <fragment
         android:id="@+id/imageSearchFragment"
-        android:name="com.example.dogstagram.fragments.ImageSearchFragment"
+        android:name="com.example.dogstagram.DOG_Fragments.ImageSearchFragment"
         android:label="fragment_image_search"
         tools:layout="@layout/fragment_image_search" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/favouritesFragment"
-        android:name="com.example.dogstagram.fragments.FavouritesFragment"
+        android:name="com.example.dogstagram.DOG_Fragments.FavouritesFragment"
         android:label="fragment_favourites"
         tools:layout="@layout/fragment_favourites" />
 </navigation>

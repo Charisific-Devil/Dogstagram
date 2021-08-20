@@ -1,8 +1,6 @@
-package com.example.dogstagram.models;
+package com.example.dogstagram.DOG_Model_Lists;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.io.File;
 
 public class UploadImg {
     @SerializedName("id")

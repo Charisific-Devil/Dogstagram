@@ -1,14 +1,10 @@
-package com.example.dogstagram.adapters;
+package com.example.dogstagram.Dog_Adapters;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,17 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dogstagram.JsonPlaceFolderAPI;
 import com.example.dogstagram.R;
-import com.example.dogstagram.models.BreedName;
-import com.example.dogstagram.models.ImageURL;
-import com.example.dogstagram.models.Labels;
-import com.squareup.picasso.Picasso;
+import com.example.dogstagram.DOG_Model_Lists.Labels;
 
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static java.lang.String.format;
 import static java.lang.String.valueOf;

@@ -1,18 +1,16 @@
 package com.example.dogstagram;
 
-import com.example.dogstagram.models.BreedName;
-import com.example.dogstagram.models.ImageAnalysis;
-import com.example.dogstagram.models.ImageURL;
-import com.example.dogstagram.models.SearchBreed;
-import com.example.dogstagram.models.UploadImg;
-import com.example.dogstagram.models.Vote;
-import com.example.dogstagram.models.VoteData;
+import com.example.dogstagram.DOG_Model_Lists.BreedName;
+import com.example.dogstagram.DOG_Model_Lists.ImageAnalysis;
+import com.example.dogstagram.DOG_Model_Lists.ImageURL;
+import com.example.dogstagram.DOG_Model_Lists.SearchBreed;
+import com.example.dogstagram.DOG_Model_Lists.UploadImg;
+import com.example.dogstagram.DOG_Model_Lists.Vote;
+import com.example.dogstagram.DOG_Model_Lists.VoteData;
 
-import java.util.Calendar;
 import java.util.List;
 
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

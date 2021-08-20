@@ -1,4 +1,4 @@
-package com.example.dogstagram.fragments;
+package com.example.dogstagram.DOG_Fragments;
 
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dogstagram.R;
-import com.example.dogstagram.adapters.FavouritesAdapter;
-import com.example.dogstagram.database.AppDatabase;
-import com.example.dogstagram.database.Data;
+import com.example.dogstagram.Dog_Adapters.FavouritesAdapter;
+import com.example.dogstagram.Dog_DB.AppDatabase;
+import com.example.dogstagram.Dog_DB.Data;
 
 import org.jetbrains.annotations.NotNull;
 

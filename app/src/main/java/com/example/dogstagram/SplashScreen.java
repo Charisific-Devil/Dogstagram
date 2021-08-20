@@ -22,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
 
         paw.setAnimation(anim);
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(SplashScreen.this, R.raw.dogwoof);
+        MediaPlayer mediaPlayer = MediaPlayer.create(SplashScreen.this, R.raw.dog_intro);
         mediaPlayer.start();
 
         Handler handler = new Handler();

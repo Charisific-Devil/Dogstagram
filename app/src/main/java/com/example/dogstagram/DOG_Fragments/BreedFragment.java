@@ -1,4 +1,4 @@
-package com.example.dogstagram.fragments;
+package com.example.dogstagram.DOG_Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,20 +16,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
 import com.example.dogstagram.SearchActivity;
-import com.example.dogstagram.models.BreedName;
-import com.example.dogstagram.models.ImageURL;
+import com.example.dogstagram.DOG_Model_Lists.BreedName;
+import com.example.dogstagram.DOG_Model_Lists.ImageURL;
 import com.example.dogstagram.JsonPlaceFolderAPI;
 import com.example.dogstagram.R;
-import com.example.dogstagram.adapters.BreedNamesAdapter;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import org.jetbrains.annotations.NotNull;
+import com.example.dogstagram.Dog_Adapters.BreedNamesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
